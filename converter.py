@@ -1,10 +1,10 @@
 import ezdxf
-from shapely.geometry import LineString, mapping
+from shapely.geometry import LineString
 
 def convert_dxf_to_geojson(file_path: str) -> dict:
     doc = ezdxf.readfile(file_path)
     msp = doc.modelspace()
-    
+
     features = []
 
     for entity in msp:
@@ -18,10 +18,12 @@ def convert_dxf_to_geojson(file_path: str) -> dict:
 
             if points:
                 coords = [(p[0], p[1]) for p in points]
-                line = LineString(coords)
                 feature = {
                     "type": "Feature",
-                    "geometry": mapping(line),
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": coords
+                    },
                     "properties": {}
                 }
                 features.append(feature)
