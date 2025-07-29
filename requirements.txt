@@ -1,6 +1,5 @@
 fastapi
 uvicorn
-ezdxf
-geojson
-shapely
+shapely==2.0.1
+ezdxf==1.1.1
 requests
