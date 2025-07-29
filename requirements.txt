@@ -1,6 +1,0 @@
-fastapi
-uvicorn
-ezdxf
-geojson
-shapely
-requests
