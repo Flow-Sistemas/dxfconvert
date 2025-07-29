@@ -27,12 +27,9 @@ def convert(data: ConversionRequest):
         with open(temp_path, "wb") as f:
             f.write(r.content)
 
-        # Converte para GeoJSON como objeto (não salva em arquivo)
         geojson_data = convert_dxf_to_geojson(temp_path)
 
-        # Apaga o arquivo temporário
         os.remove(temp_path)
-
         return geojson_data
 
     except Exception as e:
