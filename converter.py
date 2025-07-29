@@ -4,7 +4,7 @@ from shapely.geometry import LineString
 def convert_dxf_to_geojson(file_path: str) -> dict:
     doc = ezdxf.readfile(file_path)
     msp = doc.modelspace()
-
+    
     features = []
 
     for entity in msp:
