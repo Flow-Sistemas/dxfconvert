@@ -19,5 +19,4 @@ def convert_dxf_to_geojson(file_path: str) -> dict:
                 geom = LineString([(p[0], p[1]) for p in points])
                 features.append(geojson.Feature(geometry=mapping(geom), properties={}))
 
-    fc = geojson.FeatureCollection(features)
-    return fc
+    return geojson.FeatureCollection(features)
